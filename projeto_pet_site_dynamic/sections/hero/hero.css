@@ -1,0 +1,29 @@
+.hero-section {
+  background-color: #FFF2DC;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #002147;
+}
+
+.hero-subtitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #002147;
+}
+
+.hero-text {
+  color: #333;
+  font-size: 1rem;
+  max-width: 500px;
+}
+
+.btn-outline-dark-blue {
+  border: 2px solid #002147;
+  color: #002147;
+  padding: 0.6rem 1.5rem;
+  border-radius: 25px;
+  background: none;
+}

@@ -1,0 +1,16 @@
+.banner {
+    background-image: url('../../assets/img/banner/banner-background.png');
+    background-size: cover;
+    background-position: left center;
+  }
+
+  .banner-wrapper {
+    background-color: white;
+    padding: 7rem; /* opcional, só para espaçamento externo */
+  }
+
+  .text-box {
+    max-width: 500px;
+    text-align: right;
+    color: black;
+  }
