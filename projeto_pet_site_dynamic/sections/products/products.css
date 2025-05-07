@@ -1,28 +1,30 @@
-.pets-section {
+.products-section {
     background-color: white;
-  }
+}
   
-  .section-title {
+.section-title {
     font-weight: 700;
     color: #003459;
     font-size: 1.5rem; 
-  }
+}
   
-  .pet-card {
+.products-card {
     border: none;
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.2s ease;
-  }
+}
   
-  .pet-card:hover {
+.products-card:hover {
     transform: translateY(-5px);
-  }
+}
   
-  .pet-card img {
+.products-card img {
     height: 300px;
     object-fit: cover;
-  }
+}
 
-
+.card-body {
+    height: 175px;
+}
 
