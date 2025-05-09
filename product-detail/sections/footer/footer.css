@@ -1,0 +1,16 @@
+.bg-light-yellow {
+    background-color: #fff3da;
+}
+  
+.bg-dark-blue {
+    background-color: #002b55;
+}
+  
+.text-dark-blue {
+    color: #002b55;
+}
+
+.rounded-top-outer {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}

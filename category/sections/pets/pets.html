@@ -1,0 +1,209 @@
+<div class="container">
+    <div class="container-fluid mt-4">
+        <div class="row">
+                <!-- Filter Section -->
+                <div class="col-md-3 filter-section">
+                        <h5 class="mb-4">Filter</h5>
+                    <div class="mb-3">
+                        <strong>Gender</strong><br>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="male">
+                            <label class="form-check-label" for="male">Male</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="female">
+                            <label class="form-check-label" for="female">Female</label>
+                        </div>
+                    </div>
+
+                    <hr class="bg-secondary border-2 border-top">  
+
+                    <div class="mb-2">
+                        <strong>Color</strong><br>
+                        <div class="form-check d-flex align-items-center mb-2">
+                            <input class="form-check-input me-2" type="checkbox" id="colorRed">
+                            <label class="form-check-label d-flex align-items-center" for="colorRed">
+                                <span style="width: 14px; height: 14px; display: inline-block; background-color: #FF564F; border-radius: 50%; margin-right: 4px;"></span>
+                              Red
+                            </label>
+                        </div>
+
+                        <div class="form-check d-flex align-items-center mb-2">
+                            <input class="form-check-input me-2" type="checkbox" id="colorApricot">
+                            <label class="form-check-label d-flex align-items-center" for="colorApricot">
+                                <span style="width: 14px; height: 14px; display: inline-block; background-color: #FFB672; border-radius: 50%; margin-right: 4px;"></span>
+                              Apricot
+                            </label>
+                        </div>
+
+                        <div class="form-check d-flex align-items-center mb-2">
+                            <input class="form-check-input me-2" type="checkbox" id="colorBlack">
+                            <label class="form-check-label d-flex align-items-center" for="colorBlack">
+                                <span style="width: 14px; height: 14px; display: inline-block; background-color: #242B33; border-radius: 50%; margin-right: 4px;"></span>
+                              Black
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-check d-flex align-items-center mb-2">
+                        <input class="form-check-input me-2" type="checkbox" id="colorSilver">
+                        <label class="form-check-label d-flex align-items-center" for="colorSilver">
+                            <span style="width: 14px; height: 14px; display: inline-block; background-color: #CECECE; border-radius: 50%; margin-right: 4px;"></span>
+                          Silver
+                        </label>
+                    </div>
+
+                    <div class="form-check d-flex align-items-center mb-2">
+                        <input class="form-check-input me-2" type="checkbox" id="colorTan">
+                        <label class="form-check-label d-flex align-items-center" for="colorTan">
+                            <span style="width: 14px; height: 14px; display: inline-block; background-color: #FFF7CE; border-radius: 50%; margin-right: 4px;"></span>
+                          Tan
+                        </label>
+                    </div>
+
+                    <hr class="bg-secondary border-2 border-top">
+
+                    <div class="mb-3">
+                        <strong>Price</strong><br>
+                        <div class="row g-2">
+                            <div class="col">
+                            <input type="number" class="form-control" placeholder="Min">
+                            </div>
+                            <div class="col">
+                            <input type="number" class="form-control" placeholder="Max">
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="bg-secondary border-2 border-top">
+
+                    <div class="mb-3">
+                        <strong>Breed</strong><br>
+                        <div class="form-check"><input class="form-check-input" type="checkbox" id="small"><label class="form-check-label" for="small">Small</label></div>
+                        <div class="form-check"><input class="form-check-input" type="checkbox" id="medium"><label class="form-check-label" for="medium">Medium</label></div>
+                        <div class="form-check"><input class="form-check-input" type="checkbox" id="large"><label class="form-check-label" for="large">Large</label></div>
+                    </div>
+
+                    <hr class="bg-secondary border-2 border-top">
+
+                </div>
+            
+                <!-- Dog List Section -->
+            <div class="col-md-9">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4>Small Dog <span class="text-muted">52 puppies</span></h4>
+                    <select class="form-select w-auto">
+                        <option>Sort by: Popular</option>
+                        <option>Price Low to High</option>
+                        <option>Price High to Low</option>
+                    </select>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="card pet-card shadow">
+                              <img src="assets/img/pets/poodle-sepia.png" class="card-img-top" alt="Pet">
+                              <div class="card-body">
+                                <h6 class="card-title">MO102 - Poodle Tiny Sepia</h6>
+                                <div class="d-flex justify-content-between small text-muted mb-1">
+                                  <span>Gene: Male</span>
+                                  <span>Age: 02 months</span>
+                                </div>
+                                <p class="card-text fw-bold text-dark">4.000.000 VND</p>
+                              </div>
+                            </div>
+                          </div>
+                        
+                        <div class="col-md-4 col-sm-6">
+                            <div class="card pet-card shadow">
+                              <img src="assets/img/pets/poodle.png" class="card-img-top" alt="Pet">
+                              <div class="card-body">
+                                <h6 class="card-title">MO502 - Poodle Tiny Yellow</h6>
+                                <div class="d-flex justify-content-between small text-muted mb-1">
+                                  <span>Gene: Male</span>
+                                  <span>Age: 02 months</span>
+                                </div>
+                                <p class="card-text fw-bold text-dark">3.900.000 VND</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4 col-sm-6">
+                            <a href="../product-detail/product-detail.html" class="text-decoration-none text-dark">
+                              <div class="card pet-card shadow">
+                                <img src="assets/img/pets/pomeranian-white.png" class="card-img-top" alt="Pet">
+                                <div class="card-body">
+                                  <h6 class="card-title">MO231 - Pomeranian White</h6>
+                                  <div class="d-flex justify-content-between small text-muted mb-1">
+                                    <span>Gene: Female</span>
+                                    <span>Age: 02 months</span>
+                                  </div>
+                                  <p class="card-text fw-bold text-dark">6.900.000 VND</p>
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+
+                          <div class="col-md-4 col-sm-6">
+                            <div class="card pet-card shadow">
+                              <img src="assets/img/pets/alaskan.png" class="card-img-top" alt="Pet">
+                              <div class="card-body">
+                                <h6 class="card-title">MO512 - Alaskan Malamute Grey</h6>
+                                <div class="d-flex justify-content-between small text-muted mb-1">
+                                  <span>Gene: Male</span>
+                                  <span>Age: 02 months</span>
+                                </div>
+                                <p class="card-text fw-bold text-dark">8.900.000 VND</p>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div class="col-md-4 col-sm-6">
+                            <div class="card pet-card shadow">
+                              <img src="assets/img/pets/corgi.png" class="card-img-top" alt="Pet">
+                              <div class="card-body">
+                                <h6 class="card-title">MO231 - Pembroke Corgi Cream</h6>
+                                <div class="d-flex justify-content-between small text-muted mb-1">
+                                  <span>Gene: Male</span>
+                                  <span>Age: 02 months</span>
+                                </div>
+                                <p class="card-text fw-bold text-dark">7.900.000 VND</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4 col-sm-6">
+                            <div class="card pet-card shadow">
+                              <img src="assets/img/pets/corgi-tricolor.png" class="card-img-top" alt="Pet">
+                              <div class="card-body">
+                                <h6 class="card-title">MO502 - Pembroke Corgi Tricolor</h6>
+                                <div class="d-flex justify-content-between small text-muted mb-1">
+                                  <span>Gene: Female</span>
+                                  <span>Age: 02 months</span>
+                                </div>
+                                <p class="card-text fw-bold text-dark">9.000.000 VND</p>
+                              </div>
+                            </div>
+                          </div>
+                          <nav class="d-flex justify-content-center">
+                            <ul class="pagination">
+                                <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">&larr;</a>
+                                </li>
+                                <li class="page-item active">
+                                <a class="page-link" href="#">1</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                <li class="page-item disabled"><span class="page-link">...</span></li>
+                                <li class="page-item"><a class="page-link" href="#">28</a></li>
+                                <li class="page-item">
+                                <a class="page-link" href="#">&rarr;</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+.carousel-indicators {
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #00264d;
+    opacity: 0.3;
+    margin: 0 4px;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+}
+
+.carousel-indicators button {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ccc;
+    transition: all 0.3s ease;
+    margin: 0 4px;
+}
+  
+.carousel-indicators .active {
+    width: 24px; 
+    background-color: #00264d; 
+    border-radius: 5rem; 
+}
