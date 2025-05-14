@@ -37,10 +37,10 @@
                         </div>
 
                         <div class="form-check d-flex align-items-center mb-2">
-                            <input class="form-check-input me-2" type="checkbox" id="colorBlack">
-                            <label class="form-check-label d-flex align-items-center" for="colorBlack">
-                                <span style="width: 14px; height: 14px; display: inline-block; background-color: #242B33; border-radius: 50%; margin-right: 4px;"></span>
-                              Black
+                            <input class="form-check-input me-2" type="checkbox" id="colorWhite">
+                            <label class="form-check-label d-flex align-items-center" for="colorWhite">
+                                <span style="width: 14px; height: 14px; display: inline-block; background-color: white; border-radius: 50%; margin-right: 4px;"></span>
+                              White
                             </label>
                         </div>
                     </div>
@@ -91,30 +91,43 @@
                 <!-- Dog List Section -->
             <div class="col-md-9">
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h4>Small Dog <span class="text-muted">52 puppies</span></h4>
+                    <h4>
+                      <span id="title-gender">Small Dog</span>
+                      <span class="text-muted">
+                        <span id="title-count">52</span> puppies
+                      </span>
+                    </h4>
                     <select class="form-select w-auto">
-                        <option>Sort by: Popular</option>
-                        <option>Price Low to High</option>
-                        <option>Price High to Low</option>
+                      <option value="Popular">Sort by: Popular</option>
+                      <option value="Price Low to High">Price Low to High</option>
+                      <option value="Price High to Low">Price High to Low</option>
                     </select>
                     </div>
                     <div class="row g-4">
                         <div class="col-md-4 col-sm-6">
-                            <div class="card pet-card shadow">
-                              <img src="assets/img/pets/poodle-sepia.png" class="card-img-top" alt="Pet">
-                              <div class="card-body">
-                                <h6 class="card-title">MO102 - Poodle Tiny Sepia</h6>
-                                <div class="d-flex justify-content-between small text-muted mb-1">
-                                  <span>Gene: Male</span>
-                                  <span>Age: 02 months</span>
+                            <div class="card pet-card shadow"
+                                  data-gender="male"
+                                  data-color="red"
+                                  data-price="4000000"
+                                  data-breed="small">
+                                <img src="assets/img/pets/poodle-sepia.png" class="card-img-top" alt="Pet">
+                                <div class="card-body">
+                                  <h6 class="card-title">MO102 - Poodle Tiny Sepia</h6>
+                                  <div class="d-flex justify-content-between small text-muted mb-1">
+                                    <span>Gene: Male</span>
+                                    <span>Age: 02 months</span>
+                                  </div>
+                                  <p class="card-text fw-bold text-dark">4.000.000 VND</p>
                                 </div>
-                                <p class="card-text fw-bold text-dark">4.000.000 VND</p>
                               </div>
-                            </div>
                           </div>
                         
                         <div class="col-md-4 col-sm-6">
-                            <div class="card pet-card shadow">
+                            <div class="card pet-card shadow"
+                                  data-gender="male"
+                                  data-color="apricot"
+                                  data-price="39000000"
+                                  data-breed="small">
                               <img src="assets/img/pets/poodle.png" class="card-img-top" alt="Pet">
                               <div class="card-body">
                                 <h6 class="card-title">MO502 - Poodle Tiny Yellow</h6>
@@ -129,7 +142,11 @@
 
                           <div class="col-md-4 col-sm-6">
                             <a href="../product-detail/product-detail.html" class="text-decoration-none text-dark">
-                              <div class="card pet-card shadow">
+                              <div class="card pet-card shadow"
+                                  data-gender="female"
+                                  data-color="white"
+                                  data-price="6900000"
+                                  data-breed="small">
                                 <img src="assets/img/pets/pomeranian-white.png" class="card-img-top" alt="Pet">
                                 <div class="card-body">
                                   <h6 class="card-title">MO231 - Pomeranian White</h6>
@@ -144,7 +161,11 @@
                           </div>
 
                           <div class="col-md-4 col-sm-6">
-                            <div class="card pet-card shadow">
+                            <div class="card pet-card shadow"
+                                  data-gender="male"
+                                  data-color="silver"
+                                  data-price="8900000"
+                                  data-breed="small">
                               <img src="assets/img/pets/alaskan.png" class="card-img-top" alt="Pet">
                               <div class="card-body">
                                 <h6 class="card-title">MO512 - Alaskan Malamute Grey</h6>
@@ -158,7 +179,11 @@
                           </div>
                           
                           <div class="col-md-4 col-sm-6">
-                            <div class="card pet-card shadow">
+                            <div class="card pet-card shadow"
+                                  data-gender="male"
+                                  data-color="tan"
+                                  data-price="7900000"
+                                  data-breed="small">
                               <img src="assets/img/pets/corgi.png" class="card-img-top" alt="Pet">
                               <div class="card-body">
                                 <h6 class="card-title">MO231 - Pembroke Corgi Cream</h6>
@@ -172,7 +197,11 @@
                           </div>
 
                           <div class="col-md-4 col-sm-6">
-                            <div class="card pet-card shadow">
+                            <div class="card pet-card shadow"
+                                  data-gender="female"
+                                  data-color="tan white"
+                                  data-price="39000000"
+                                  data-breed="small">
                               <img src="assets/img/pets/corgi-tricolor.png" class="card-img-top" alt="Pet">
                               <div class="card-body">
                                 <h6 class="card-title">MO502 - Pembroke Corgi Tricolor</h6>

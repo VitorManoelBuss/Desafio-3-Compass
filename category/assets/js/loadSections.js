@@ -7,9 +7,15 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(response => response.text())
       .then(data => document.getElementById("banner").innerHTML = data); 
 
-      fetch("sections/pets/pets.html")
+    fetch('sections/pets/pets.html')
       .then(response => response.text())
-      .then(data => document.getElementById("pets").innerHTML = data); 
+      .then(html => {
+        document.getElementById('pets').innerHTML = html;
+
+        const script = document.createElement('script');
+        script.src = '/category/sections/pets/pets.js';
+        document.body.appendChild(script);
+  }); 
   
     fetch("sections/footer/footer.html")
       .then(response => response.text())

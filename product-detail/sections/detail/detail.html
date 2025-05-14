@@ -89,7 +89,7 @@
           <h4 class="text-dark-blue fw-semibold mb-4">6.900.000 VND</h4>
 
           <div class="d-flex gap-2 mb-4">
-            <button class="btn btn-dark-blue btn-pill fw-semibold">Contact us</button>
+            <button class="btn btn-dark-blue btn-pill fw-semibold" data-bs-toggle="modal" data-bs-target="#contactModal"> Contact us</button>
             <button class="btn btn-outline-dark-blue btn-pill fw-semibold"> <img src="assets/img/detail/Chat.png" width="23" alt="ID Icon"/> Chat with Monito</button>
           </div>
 
@@ -119,3 +119,41 @@
 
   <!-- Optional: Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Modal -->
+   <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content rounded-4 shadow-sm">
+      <div class="modal-header bg-dark-blue text-white rounded-top-4">
+        <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="modal-body">
+        <div class="mb-3">
+          <label for="fullName" class="form-label">Nome Completo</label>
+          <input type="text" class="form-control" id="fullName" required>
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="form-label">Telefone</label>
+          <input type="tel" class="form-control" id="phone" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="city" class="form-label">Cidade</label>
+          <input type="text" class="form-control" id="city">
+        </div>
+        <div class="mb-3">
+          <label for="state" class="form-label">Estado</label>
+          <input type="text" class="form-control" id="state">
+        </div>
+      </form>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary btn-pill" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-dark-blue">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>

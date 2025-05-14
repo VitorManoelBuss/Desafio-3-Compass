@@ -104,3 +104,12 @@
     border-radius: 0.5rem;
     font-size: 0.9rem;
 }
+
+.btn-dark-blue {
+  background-color: #003366; /* ou a cor do seu design */
+  color: white;
+}
+
+.text-dark-blue {
+  color: #003366;
+}
