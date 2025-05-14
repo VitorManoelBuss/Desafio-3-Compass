@@ -1,6 +1,5 @@
 const maleCheckbox = document.getElementById('male');
 const femaleCheckbox = document.getElementById('female');
-const petCards = document.querySelectorAll('.pet-card');
 const colorCheckboxes = [
     document.getElementById('colorRed'),
     document.getElementById('colorApricot'),
@@ -17,55 +16,45 @@ const breedCheckboxes = [
 ];
 const titleGender = document.getElementById('title-gender');
 const titleCount = document.getElementById('title-count');
-const sortSelect = document.querySelector('.form-select.w-auto');
 const petGrid = document.querySelector('.row.g-4');
-const petColumns = Array.from(petGrid.children); // .col-md-4 col-sm-6
-const originalOrder = [...petColumns]; // Clonamos para preservar
+const petColumns = Array.from(petGrid.children);
+const allCards = Array.from(document.querySelectorAll('.pet-card'));
+const paginationContainer = document.getElementById('pagination-container');
 
+let currentPage = 1;
+const cardsPerPage = 6;
 
+// Variável para armazenar os cards filtrados
+let filteredCards = [];
 
-maleCheckbox.addEventListener('change', filterPets);
-femaleCheckbox.addEventListener('change', filterPets);
-colorCheckboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', filterPets);
-});
+// Event listeners
+maleCheckbox.addEventListener('change', () => { filterPets(); });
+femaleCheckbox.addEventListener('change', () => { filterPets(); });
+colorCheckboxes.forEach(cb => cb.addEventListener('change', filterPets));
 minPriceInput.addEventListener('input', filterPets);
 maxPriceInput.addEventListener('input', filterPets);
 breedCheckboxes.forEach(cb => cb.addEventListener('change', filterPets));
-sortSelect.addEventListener('change', () => {
-    sortPets();
-    filterPets(); // Para reaplicar o filtro após reordenar
+document.addEventListener('DOMContentLoaded', () => {
+    filterPets();
 });
 
-
-
-
-
-
+// Funções principais
 function filterPets() {
     const showMale = maleCheckbox.checked;
     const showFemale = femaleCheckbox.checked;
-
-    // Filtros de cor
-    const selectedColors = colorCheckboxes
-        .filter(cb => cb.checked)
-        .map(cb => cb.id.replace('color', '').toLowerCase());
-
-    // Filtros de raça
-    const selectedBreeds = breedCheckboxes
-        .filter(cb => cb.checked)
-        .map(cb => cb.id.toLowerCase());
-
-    // Filtros de preço
+    const selectedColors = colorCheckboxes.filter(cb => cb.checked).map(cb => cb.id.replace('color', '').toLowerCase());
+    const selectedBreeds = breedCheckboxes.filter(cb => cb.checked).map(cb => cb.id.toLowerCase());
     const minPrice = parseInt(minPriceInput.value) || 0;
     const maxPrice = parseInt(maxPriceInput.value) || Infinity;
 
-    petCards.forEach(card => {
+    let visibleCount = 0;
+
+    // Filtrando os cards
+    filteredCards = allCards.filter(card => {
         const gender = card.getAttribute('data-gender');
-        const color = card.getAttribute('data-color') || '';
-        const breed = card.getAttribute('data-breed') || '';
+        const color = (card.getAttribute('data-color') || '').toLowerCase();
+        const breed = (card.getAttribute('data-breed') || '').toLowerCase();
         const price = parseInt(card.getAttribute('data-price'));
-        const col = card.closest('.col-md-4');
 
         const genderMatch =
             (!showMale && !showFemale) ||
@@ -74,54 +63,26 @@ function filterPets() {
 
         const colorMatch =
             selectedColors.length === 0 ||
-            selectedColors.some(selectedColor => color.includes(selectedColor));
+            selectedColors.some(selected => color.includes(selected));
 
         const breedMatch =
             selectedBreeds.length === 0 ||
-            selectedBreeds.includes(breed.toLowerCase());
+            selectedBreeds.includes(breed);
 
         const priceMatch = price >= minPrice && price <= maxPrice;
 
         if (genderMatch && colorMatch && breedMatch && priceMatch) {
-            col.style.display = 'block';
-        } else {
-            col.style.display = 'none';
-        }
-    });
-
-        let visibleCount = 0;
-
-    petCards.forEach(card => {
-        const gender = card.getAttribute('data-gender');
-        const color = card.getAttribute('data-color') || '';
-        const breed = card.getAttribute('data-breed') || '';
-        const price = parseInt(card.getAttribute('data-price'));
-        const col = card.closest('.col-md-4');
-
-        const genderMatch =
-            (!showMale && !showFemale) ||
-            (gender === 'male' && showMale) ||
-            (gender === 'female' && showFemale);
-
-        const colorMatch =
-            selectedColors.length === 0 ||
-            selectedColors.some(selectedColor => color.includes(selectedColor));
-
-        const breedMatch =
-            selectedBreeds.length === 0 ||
-            selectedBreeds.includes(breed.toLowerCase());
-
-        const priceMatch = price >= minPrice && price <= maxPrice;
-
-        if (genderMatch && colorMatch && breedMatch && priceMatch) {
-            col.style.display = 'block';
             visibleCount++;
-        } else {
-            col.style.display = 'none';
+            return true;
         }
+        return false;
     });
 
-    // Construir título com base nos filtros
+    updateTitle(showMale, showFemale, selectedColors, selectedBreeds, visibleCount);
+    paginateVisiblePets();
+}
+
+function updateTitle(showMale, showFemale, selectedColors, selectedBreeds, count) {
     let titleParts = [];
 
     if (showMale && !showFemale) titleParts.push('Male');
@@ -147,33 +108,54 @@ function filterPets() {
     }
 
     titleGender.textContent = titleParts.join(' ');
-    titleCount.textContent = visibleCount;
+    titleCount.textContent = count;
+}
+
+function paginateVisiblePets() {
+    const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
+
+    // Esconde todos os cards
+    allCards.forEach(card => card.closest('.col-md-4').style.display = 'none');
+
+    // Calcula o intervalo de cards a serem exibidos
+    const start = (currentPage - 1) * cardsPerPage;
+    const end = start + cardsPerPage;
+
+    // Exibe os cards filtrados da página atual
+    filteredCards.slice(start, end).forEach(card => card.closest('.col-md-4').style.display = 'block');
+
+    updatePaginationButtons(totalPages);
+}
+
+function updatePaginationButtons(totalPages) {
+    paginationContainer.innerHTML = '';
+
+    if (totalPages <= 1) return;
+
+    // Cria os botões de navegação das páginas
+    for (let i = 1; i <= totalPages; i++) {
+        const li = document.createElement('li');
+        li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+        const a = document.createElement('a');
+        a.className = 'page-link';
+        a.href = '#';
+        a.textContent = i;
+        a.addEventListener('click', (e) => {
+            e.preventDefault();
+            currentPage = i;
+            paginateVisiblePets();
+        });
+        li.appendChild(a);
+        paginationContainer.appendChild(li);
+    }
 }
 
 function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-function sortPets() {
-    const selectedOption = sortSelect.value;
-    let sortedColumns = [];
 
-    const getPrice = el => {
-        const card = el.querySelector('.pet-card');
-        return card ? parseInt(card.getAttribute('data-price')) || 0 : 0;
-    };
 
-    if (selectedOption === 'Price Low to High') {
-        sortedColumns = [...petColumns].sort((a, b) => getPrice(a) - getPrice(b));
-    } else if (selectedOption === 'Price High to Low') {
-        sortedColumns = [...petColumns].sort((a, b) => getPrice(b) - getPrice(a));
-    } else {
-        sortedColumns = [...originalOrder];
-    }
-
-    // Aplica ordenação
-    sortedColumns.forEach(col => petGrid.appendChild(col));
-}
 
 
 
